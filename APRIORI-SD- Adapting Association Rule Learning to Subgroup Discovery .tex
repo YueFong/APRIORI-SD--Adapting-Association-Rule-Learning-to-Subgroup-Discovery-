@@ -1,0 +1,376 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+\usepackage{mathrsfs}
+
+
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+\usepackage{CJKutf8}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+% UTF-8 encoding
+% CJKfonts package
+% latex+dvips, latex+dvipdfm(x) or pdflatex
+
+
+\AtBeginSection[]
+{
+	\begin{frame}<beamer>
+		\frametitle{Outline for section \thesection}
+		{\scriptsize \tableofcontents[ currentsection ]}
+	\end{frame}
+}
+%\tableofcontents[ 
+%currentsubsection, 
+%hideothersubsections, 
+%sectionstyle=show/hide, 
+%subsectionstyle=show/shaded, 
+%]
+\begin{document}
+\begin{CJK*}{UTF8}{bsmi}
+
+%\documentclass{article}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[APRIORI-SD]{APRIORI-SD: Adapting Association Rule Learning to Subgroup Discovery} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{鍾岳峰} % Your name
+\institute[Yue-Fong,Chung] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+元智大學 \\ % Your institution for the title page
+\medskip
+\textit{pchomekimojuf@gmail.com} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+
+
+\begin{frame}{Outline}
+%\begin{frame}[allowframebreaks]{Outline}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+
+\tableofcontents[hideallsubsections] % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+%\framebreak
+%\tableofcontents{2}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{INTRODUCTION} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%第一章介紹
+%------------------------------------------------
+
+
+%提示％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％
+%****要做重點劃紅線可以用
+%{\color{red}fuzzy measures} 
+%****草寫
+% \Large $\mathscr{B}$
+%換行
+%\\
+%提示％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％％
+
+%------------------------------------------------
+%\subsection{INTRODUCTION}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	\begin{itemize}
+		\item Classical rule learning algorithms are designed to \textbf{construct classification} and \textbf{prediction rules} [12,3,4,7].
+		\item Some of the questions on how to adapt classical classification rule learning approaches to subgroup discovery have already been addressed in [10] and a well-known rule learning algorithm \textbf{CN2} was adapted to subgroup discovery. 
+		\item In this paper we take a rule learner \textbf{APRIORI-C }instead of CN2 and adapt it to \textbf{subgroup discovery}, following the guidelines from [10].
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	We have implemented the \textbf{new} subgroup discovery algorithm\textbf{ APRIORI-SD }in C++ by \textbf{modifying the APRIORI-C algorithm}.\\
+	The proposed approach performs subgroup discovery through the following \textbf{modifications} of the rule learning algorithm APRIORI-C: 
+	\begin{itemize}
+		\item using a \textbf{weighting scheme} in rule post-processing.
+		\item using \textbf{weighted relative accuracy} as a \textbf{new measure of} the quality of the rules in the post-processing step \textbf{when the best rules are selected}.
+		\item \textbf{probabilistic classification} based on the class distribution of \textbf{covered examples} by individual rules
+		\item area under the \textbf{ROC(ROC: Receiver Operating Characteristic)} curve rule set evaluation.
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	\begin{itemize}
+		\item This paper \textbf{presents the APRIORI-SD subgroup discovery algorithm}, together with its experimental evaluation\textbf{ in selected domains of} the \textbf{UCI Repository} of Machine Learning Databases [13].
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	These three factors are important for subgroup discovery: 
+	\begin{itemize}
+		\item smaller size enables better understanding
+		\item higher coverage means larger subgroups
+		\item higher significance 
+	\end{itemize}
+	Above factors means that rules describe subgroups whose \textbf{class distribution is significantly }different from the entire population by no loss in terms of the area under the ROC curve and accuracy.
+\end{frame}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	This paper is organized as follows.
+	\begin{itemize}
+		\item In Section 2 \textbf{the background} for this work is explained: the APRIORI-C rule induction algorithm, including \textbf{the post-processing step of selecting the best rules}.
+		\item Section 3 presents \textbf{the modified APRIORI-C algorithm}, called \textbf{APRIORI-SD}, adapting APRIORI-C for subgroup discovery together with \textbf{the weighted relative accuracy measure}, probabilistic classification and rule evaluation in the \textbf{ROC space}.
+		\item Section 4 presents the \textbf{experimental }evaluation on selected \textbf{UCI domains}.
+		\item  Section 5 concludes by \textbf{summarizing the results} and presenting plans for \textbf{further work}.
+		\item While in Section 4 we present \textbf{the summary results of the experiments}, the complete results on all \textbf{the UCI data sets} are presented in the\textbf{ Appendix}.
+	\end{itemize}
+\end{frame}
+\section{ Background: The APRIORI-C Algorithm} 
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+		\begin{itemize}
+			\item The main advantage of APRIORI-C over its predecessors is \textbf{lower memory consumption}, \textbf{decreased time complexity} and \textbf{improved understandability of results}.
+			\item We describe here just \textbf{the parts of the APRIORI-C} that are essential for the reader to understand the derived \textbf{APRIORI-SD algorithm}.
+		\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	\begin{block}{An association rule has the following form: }
+		~\\
+	\begin{center} $ 	X\longrightarrow Y $,\\	\end{center}
+		\begin{flushright}
+			(1)
+		\end{flushright}
+		\begin{itemize}
+			\item  where X,Y ⊂ I
+			\item X and Y are itemsets
+			\item I is the set of all items\\
+			~\\
+		\end{itemize}
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	The \textbf{quality} of each \textbf{association rule }is defined by its \textbf{confidence and support.}\\
+	\begin{itemize}
+		\item  Confidence of a rule is an estimate of the conditional probability of Y given X: p(Y $ \arrowvert $ X).
+		\item  Support of a rule is an estimate of the probability of itemset X ∪ Y : p(XY ). 
+		\end{itemize}
+	\begin{block}{Confidence and support are computed as follows:}
+\begin{center}
+$ 	Confidence=  \dfrac{n(XY)}{n(X)}= \dfrac{p(XY)}{p(X)} =p(Y|X),Support= \dfrac{n(XY)}{N} =p(XY) $
+\end{center}
+ \begin{flushright}
+	(2) 
+\end{flushright}
+	\end{block}
+	where n(X) is \textbf{the number of transactions} that are supersets of itemset X and N is the number of \textbf{all the transactions}.
+\end{frame}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+The association rule learning algorithm APRIORI is then adopted for classification purposes (APRIORI-C).
+	\begin{block}{Implementing the following steps:}
+			\begin{itemize}
+				\item  Discretize continuous attributes.
+				\item  Binarize all (discrete) attributes.
+				\item Run the APRIORI algorithm by taking in consideration only rules whose \textbf{right-hand side} consists of a single item, \textbf{representing} the value of the class attribute (while running APRIORI).
+				\item Post-process this set of rules, selecting \textbf{the best }among them and use this rules to classify unclassified examples.
+			\end{itemize}
+			Here we describe just\textbf{ the last step}, \textbf{the post-processing of rules and classification of unclassified examples}, which are \textbf{the ones} we changed to obtain APRIORI-SD.
+	\end{block}
+\end{frame}
+\subsection{Post-processing by rule subset selection.}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	\begin{block}{ Post-processing by rule subset selection.}
+		\begin{itemize}
+			\item  The APRIORI-C algorithm induces rules according to the parameters \textbf{minimal confidence and minimal support} of a rule [7].
+			\item The setting of these two parameters is often such that the algorithm induces \textbf{a large number of rules}, which hinders the understandability and usability of induced rules.
+			\item Moreover, there are \textbf{the problems of rule redundancy}, incapability of classifying examples and poor accuracy in domains with unbalanced class distribution.
+			\item \textbf{A way to avoid these problems} is \textbf{to select just some best rules} among all the induced rules. APRIORI-C has\textbf{ three ways of selecting such best rules：}
+		\end{itemize}
+	\end{block}
+\end{frame}
+\subsection{Use N best rules:}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	\begin{block}{ Use N best rules:}
+		\begin{itemize}
+			\item  The algorithm first \textbf{selects the best rule} (rule having the highest support), then eliminates \textbf{all the covered examples}, \textbf{sorts the remaining rules} according to support and repeats the procedure.
+			\item This procedure is\textbf{ repeated until N rules are selected} or there are \textbf{no more rules to select} or there are \textbf{no more examples to cover.}
+			\item The algorithm then \textbf{stops and returns} the classifier in the form of an IF-THEN-ELSE rule list.
+		\end{itemize}
+	\end{block}
+\end{frame}
+\subsection{Use N best rules for each class:}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	\begin{block}{Use N best rules for each class：}
+		\begin{itemize}
+			\item  The algorithm behaves in \textbf{a similar way} as the ‘\textbf{use N best rules}’ case, selecting \textbf{N best rules for each class} (if so many rules exist for each class).
+			\item This way the rules for\textbf{ the minority class }will also find their way into the classifier.
+		\end{itemize}
+	\end{block}
+\end{frame}
+\subsection{Use a weighting scheme to select the best rules:}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	\begin{block}{Use a weighting scheme to select the best rules:}
+		\begin{itemize}
+			\item  The algorithm again behaves in a similar way as ‘use N best rules’.
+			\item The \textbf{difference} is that \textbf{covered examples} are \textbf{not eliminated immediately}, but instead \textbf{their weight is decreased}.
+			\item They are then \textbf{eliminated} when \textbf{the weight falls below a certain threshold} (e.g., when an example has been covered more than K times).
+		\end{itemize}
+	\end{block}
+	The details of the weighting scheme together with \textbf{the threshold }used are given in Section 3, describing APRIORI-SD.
+\end{frame}
+\section{APRIORI-SD} 
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	\begin{block}{APRIORI-SD}
+		The main modifications of \textbf{the APRIORI-C algorithm}, making it appropriate for \textbf{subgroup discovery}, involve the implementation of \textbf{a new weighting scheme in post-processing}, \textbf{a different rule quality function} (the weighted relative accuracy), the probabilistic classification of unclassified examples and the area under \textbf{the ROC curve rule} set evaluation.
+	\end{block}
+\end{frame}
+\subsection{Post-processing Procedure}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	\begin{block}{The post-processing procedure is performed as follows:}
+		~\\
+		\textbf{repeat}\\
+	\textbf{	- sort rules from best to worst in terms of the weighted relative accuracy quality measure (see Section 3.3)}\\
+		\textbf{- decrease the weights of covered examples (see Section 3.2)}\\
+		\textbf{until}\\
+		 \textbf{ all the examples have been covered or there are no more rules}
+		 \\
+		 ~\\
+	\end{block}
+\end{frame}
+\subsection{The Weighting Scheme Used in Best Rule Selection}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	\begin{block}{}
+		\begin{itemize}
+			\item In the \textbf{‘use a weighting scheme to select best rules’} post-processing method of APRIORI-C described in Section 2, \textbf{the examples covered by the ‘currently’ best rule} are \textbf{not eliminated but instead re-weighted}.
+			\item This approach \textbf{is more suitable for the subgroup discovery process} which is, in general, aimed at \textbf{discovering interesting properties} of subgroups of the entire population.
+			\item \textbf{The weighting scheme} allows this.
+		\end{itemize}
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	\begin{block}{}
+		\begin{itemize}
+			\item \textbf{The weighting scheme treats examples} in such a way that covered positive examples \textbf{are not deleted} when the currently ‘best’ rule is selected in the post-processing step of the algorithm.
+			\item Instead, \textbf{each time a rule is selected}, the algorithm\textbf{ stores with each example a count }that \textbf{shows how many times }(with how many rules selected so far) the example \textbf{has been covered so far}.
+			\item Initial weights of all positive examples $ e_{j}  $ equal 1, w($ e_{j}  $ , 0) = 1, which denotes that the example has not been covered by any rule, meaning \textbf{‘among the available rules select a rule which covers this example, as this example has not been covered by other rules’}, while lower weights mean \textbf{‘do not try too hard on this example’.}
+		\end{itemize}
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{\insertsection : \insertsubsection}
+	\begin{block}{}
+		\begin{itemize}
+			\item Weights of positive examples covered by the selected rule decrease according to the formula w($ e_{j}  $,i) =$  \dfrac{1}{i + 1} $ .
+			\item In the first iteration all target class examples contribute the same weight w($ e_{j}  $,0) = 1, while in the following iterations the contributions of examples are inverse proportional to their coverage by previously selected rules. 
+			\item In this way the examples already covered by\textbf{ one or more} selected rules\textbf{ decrease their weights }while rules covering many yet uncovered target class examples whose weights have not been decreased will have a greater chance to be covered in the following iterations.
+		\end{itemize}
+	\end{block}
+\end{frame}
+\subsection{The Weighted Relative Accuracy Measure}
+
+\subsection{Probabilistic Classification}
+\subsection{Area under ROC Curve Evaluation}
+
+\section{ Experimental Evaluation } 
+
+
+\section{Conclusions} 
+
+
+
+\begin{frame}
+\Huge{\centerline{Thank you for your attention}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\clearpage\end{CJK*}
+\end{document}
